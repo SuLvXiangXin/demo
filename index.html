@@ -24,10 +24,6 @@
 
   <title>Demo | Gallery</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="site.webmanifest">
 <style>
 .row {
   max-width:960px !important;
@@ -40,16 +36,9 @@
 </head>
 
 <body translate="no">
-<!--  <div class="banner">-->
-<!--      <video class="video lazy"-->
-<!--          poster="https://dreamfusion-cdn.ajayj.com/sept28/banner_1x6_customhue_A.jpg"-->
-<!--          autoplay loop playsinline muted>-->
-<!--        <source type="video/mp4" src="assets/banner_1x6_customhue_A.mp4"></source>-->
-<!--      </video>-->
-<!--  </div>-->
   <div class="highlight-clean" style="padding-bottom: 10px;">
     <div class="container" style="max-width: 768px;">
-        <h1 class="text-center"><b>Demo</b>: xxxxx</h1>
+        <h1 class="text-center"><b>Demo</b></h1>
     </div>
 <!--    <div class="container" style="max-width: 768px;">-->
 <!--&lt;!&ndash;        <div class="row authors">&ndash;&gt;-->
@@ -101,7 +90,7 @@
         <div class="col-sm-12">
           <div class="card">
             <div class="card-body">
-              <h4>Search assets. Hover mouse to pause rotation of a 3d model.</h4>
+              <h4>Search assets</h4>
               <input id="search" class="search form-control form-control-lg" type="text" placeholder="search">
             </div>
           </div>
@@ -122,26 +111,32 @@
     window.parent.postMessage("resize", "*");
   }
 
-  const shuffleArray = array => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-  }
-
-  var videoPaths = [
-          "shoes",
-          "stone lion",
-          "buddha statue",
-          "square",
-          "film studio",
-          "stone carving",
-          "stone woman",
-  ];
-
-  shuffleArray(videoPaths);
+  var videoNames = ["Stone wall of Buddha statue",
+          "A sculpture horse in the middle of the square",
+          "Beijing Film Studio",
+          "A sculpture temple",
+          "A stone gate in the village",
+          "A wide farm",
+          "A playground",
+          "A large circular building",
+          "An estate with lots of lawns",
+          "A house by the road",
+          "a river next to an estate",
+          "A town with lots of houses",
+          "A stone gate between two roads"];
+  var videoPaths = ["58c4bb4f4a69c55606122be4",
+          "59056e6760bb961de55f3501",
+          "59817e4a1bd4b175e7038d19",
+          "599aa591d5b41f366fed0d58",
+          "5a4a38dad38c8a075495b5d2",
+          "5af02e904c8216544b4ab5a2",
+          "5afacb69ab00705d0cefdd5b",
+          "5b62647143840965efc0dbde",
+          "5b6e716d67b396324c2d77cb",
+          "5b864d850d072a699b32f4ae",
+          "5bf26cbbd43923194854b270",
+          "5bff3c5cfe0ea555e6bcbf3a",
+          "5c1f33f1d33e1f2e4aa6dda4"];
 
   // document.addEventListener("DOMContentLoaded", function() {
     var thumbnails = document.getElementById("thumbnails");
@@ -158,46 +153,52 @@
 
       // let videoPath = videoPaths[i];
       let videoPath = videoPaths[i];
+      let videoName = videoNames[i];
       let caption = videoPath.replace("_rgbdn_hq_15000.mp4", "").replace("_rgbdn_hq_partial_15000.mp4", "").replace('.mp4', "").replaceAll("_", " ");
       let captionShort = caption;
-      inner.setAttribute("href", "https://largescaledemo-1302879605.cos.ap-shanghai.myqcloud.com/view.html?obj="+videoPath)
+      inner.setAttribute("href", "https://largescaledemo-1302879605.cos.ap-shanghai.myqcloud.com/view.html?obj="+videoName)
 
-      var componentVideo = document.createElement("VIDEO");
-      componentVideo.loop = true;
-      componentVideo.playsinline = true;
-      // componentVideo.preload = "metadata";
-      componentVideo.muted = true;
-      componentVideo.width = "300";
-      componentVideo.autoplay = true;
-      if (isIOS) {
-        // Autoplay doesn't seem to work.
-        componentVideo.classList = "video";
-        componentVideo.src = "assets/banner_1x6_customhue_A.mp4";
-        componentVideo.controls = true;
-      } else {
-        componentVideo.controls = false;
-        componentVideo.classList = "video lazy";
-        componentVideo.onmouseout = componentVideo.play;
-        componentVideo.onmouseover = componentVideo.pause;
-        componentSource = document.createElement("SOURCE")
-        componentSource.type = "video/mp4"
-        componentSource.setAttribute('src',
-          "a_t-rex_roaring_up_into_the_air.mp4");
-
-        componentVideo.appendChild(componentSource);
-
-      }
-      inner.appendChild(componentVideo);
+      var componentImage = document.createElement("img");
+      componentImage.src = "https://largescaledemo-1302879605.cos.ap-shanghai.myqcloud.com/data/"+videoPath+"/image.png";
+      componentImage.muted = true;
+      componentImage.width = "300";
+      inner.appendChild(componentImage);
+      // var componentVideo = document.createElement("VIDEO");
+      // componentVideo.loop = true;
+      // componentVideo.playsinline = true;
+      // // componentVideo.preload = "metadata";
+      // componentVideo.muted = true;
+      // componentVideo.width = "300";
+      // componentVideo.autoplay = true;
+      // if (isIOS) {
+      //   // Autoplay doesn't seem to work.
+      //   componentVideo.classList = "video";
+      //   componentVideo.src = "assets/banner_1x6_customhue_A.mp4";
+      //   componentVideo.controls = true;
+      // } else {
+      //   componentVideo.controls = false;
+      //   componentVideo.classList = "video lazy";
+      //   componentVideo.onmouseout = componentVideo.play;
+      //   componentVideo.onmouseover = componentVideo.pause;
+      //   componentSource = document.createElement("SOURCE")
+      //   componentSource.type = "video/mp4"
+      //   componentSource.setAttribute('src',
+      //     "a_t-rex_roaring_up_into_the_air.mp4");
+      //
+      //   componentVideo.appendChild(componentSource);
+      //
+      // }
+      // inner.appendChild(componentVideo);
 
       var fullCaption = document.createElement("span");
       fullCaption.classList = "name invisible";
-      fullCaption.appendChild(document.createTextNode(videoPath))
+      fullCaption.appendChild(document.createTextNode(videoName))
       inner.appendChild(fullCaption);
 
       var componentCaption = document.createElement("h6");
       componentCaption.classList = "caption";
       componentCaption.title = caption;
-      componentCaption.appendChild(document.createTextNode(videoPath));
+      componentCaption.appendChild(document.createTextNode(videoName));
       inner.appendChild(componentCaption);
 
       outer.appendChild(inner);
