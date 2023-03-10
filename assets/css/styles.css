@@ -533,7 +533,7 @@ p, .caption {
     top: 0;
     left: 0;
   }
-  
+
   .videoMerge {
     position: relative;
     top: 0;
@@ -544,7 +544,14 @@ p, .caption {
     margin: 0 auto;
     background-size: cover;
   }
-  
+  img{
+      max-width: 100%;
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
   .cropped-video{
       width: 100%;
       overflow:hidden;
@@ -654,7 +661,7 @@ p, .caption {
 .banner video {
     max-height: 128px;
     max-width: 768px;
-    text-align: center;
+    /* text-align: center; */
     margin-right: auto;
     margin-left: auto;
     display: block;
