@@ -152,6 +152,7 @@
 
       let videoPath = videoPaths[i];
       let videoName = videoNames[i];
+      let caption = videoPath;
       inner2.setAttribute("href", "https://largescaledemo-1302879605.cos.ap-shanghai.myqcloud.com/view.html?obj="+videoPath)
 
       var componentImage = document.createElement("img");
@@ -159,7 +160,6 @@
       componentImage.muted = true;
       componentImage.width = "300";
       inner.appendChild(componentImage);
-
       var fullCaption = document.createElement("span");
       fullCaption.classList = "name invisible";
       fullCaption.appendChild(document.createTextNode(videoName))
