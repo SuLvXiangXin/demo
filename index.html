@@ -149,46 +149,16 @@
       var inner2 = document.createElement("a");
     var inner = document.createElement("DIV");
       inner.classList = "inner card-body";
-      // inner.setAttribute("href", "view.html?obj=shoes")
 
-      // let videoPath = videoPaths[i];
       let videoPath = videoPaths[i];
       let videoName = videoNames[i];
-      let caption = videoPath.replace("_rgbdn_hq_15000.mp4", "").replace("_rgbdn_hq_partial_15000.mp4", "").replace('.mp4', "").replaceAll("_", " ");
-      let captionShort = caption;
-      inner2.setAttribute("href", "https://largescaledemo-1302879605.cos.ap-shanghai.myqcloud.com/view.html?obj="+videoName)
+      inner2.setAttribute("href", "https://largescaledemo-1302879605.cos.ap-shanghai.myqcloud.com/view.html?obj="+videoPath)
 
       var componentImage = document.createElement("img");
       componentImage.src = "https://largescaledemo-1302879605.cos.ap-shanghai.myqcloud.com/data/"+videoPath+"/image.png";
       componentImage.muted = true;
       componentImage.width = "300";
       inner.appendChild(componentImage);
-      // var componentVideo = document.createElement("VIDEO");
-      // componentVideo.loop = true;
-      // componentVideo.playsinline = true;
-      // // componentVideo.preload = "metadata";
-      // componentVideo.muted = true;
-      // componentVideo.width = "300";
-      // componentVideo.autoplay = true;
-      // if (isIOS) {
-      //   // Autoplay doesn't seem to work.
-      //   componentVideo.classList = "video";
-      //   componentVideo.src = "assets/banner_1x6_customhue_A.mp4";
-      //   componentVideo.controls = true;
-      // } else {
-      //   componentVideo.controls = false;
-      //   componentVideo.classList = "video lazy";
-      //   componentVideo.onmouseout = componentVideo.play;
-      //   componentVideo.onmouseover = componentVideo.pause;
-      //   componentSource = document.createElement("SOURCE")
-      //   componentSource.type = "video/mp4"
-      //   componentSource.setAttribute('src',
-      //     "a_t-rex_roaring_up_into_the_air.mp4");
-      //
-      //   componentVideo.appendChild(componentSource);
-      //
-      // }
-      // inner.appendChild(componentVideo);
 
       var fullCaption = document.createElement("span");
       fullCaption.classList = "name invisible";
